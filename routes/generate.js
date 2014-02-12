@@ -3,7 +3,7 @@ var wrench = require('wrench'),
     spawn = require('child_process').spawn,
     fs = require('fs'),
     async = require('async'),
-    zip = require("node-native-zip");
+	archiver = require('archiver');
 /*
  * Project generator route. 
  * This entire route is super brute force and rather naive. However, it works and is easy to follow. 
@@ -72,7 +72,7 @@ function sendContentAsZip(destDir, res) {
   
   var fileObjects = getFileObjectsFrom(destDir, wrench.readdirSyncRecursive(destDir));
   
-  var archive = new zip();
+  var archive = archiver.create("zip");
   archive.addFiles(fileObjects, function(err) {
     if(err) {
       console.log(err);
