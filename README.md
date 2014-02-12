@@ -58,7 +58,7 @@ Under the hood this app uses
 
 * express
 * async.js
-* node-native-zip
+* node-archiver
 * wrench
 * twitter-bootstrap
 
